@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find leo_description)/urdf/macros.xacro"/>
+
+  <xacro:macro name="leo_erc" 
+               params="rockers_fixed:=true
+                       link_prefix:=''
+                       joint_prefix:=''">
+
+    <xacro:leo default_antenna="false"
+               rockers_fixed="${rockers_fixed}"
+               link_prefix="${link_prefix}"
+               joint_prefix="${joint_prefix}"/>
+
+    <!-- Placeholder for additional links/joints -->
+
+  </xacro:macro>
+
+
+  <xacro:macro name="leo_erc_gazebo"
+               params="robot_ns:=''">
+
+    <xacro:property name="link_prefix" value=""/>
+    <xacro:if value="${robot_ns != '' and robot_ns != '/'}">
+      <xacro:property name="link_prefix" value="${robot_ns}/"/>
+    </xacro:if>
+
+    <xacro:leo_gazebo robot_ns="${robot_ns}"/>
+
+    <!-- Placeholder for additional gazebo references -->
+
+  </xacro:macro>
+
+
+  <xacro:macro name="leo_erc_sim" 
+               params="fixed:=false
+                       robot_ns:=''">
+
+    <xacro:property name="link_prefix" value=""/>
+    <xacro:if value="${robot_ns != '' and robot_ns != '/'}">
+      <xacro:property name="link_prefix" value="${robot_ns}/"/>
+    </xacro:if>
+
+    <xacro:leo_erc default_antenna="${default_antenna}"
+                   rockers_fixed="false"
+                   link_prefix="${link_prefix}"/>
+
+    <xacro:leo_erc_gazebo robot_ns="${robot_ns}"/>
+
+    <xacro:if value="${fixed}">
+      <link name="world"/>
+      <joint name="fixed" type="fixed">
+        <parent link="world"/>
+        <child link="${link_prefix}base_footprint"/>
+        <origin xyz="0.0 0.0 0"/>
+      </joint>
+    </xacro:if>
+  
+  </xacro:macro>
+
+</robot>
