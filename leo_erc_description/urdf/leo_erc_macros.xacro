@@ -15,34 +15,34 @@
                joint_prefix="${joint_prefix}"/>
 
     <joint name="${joint_prefix}erc_payload_joint" type="fixed">
-      <origin xyz="0.048 0 0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <parent link="${link_prefix}base_link"/>
       <child link="${link_prefix}erc_payload_link"/>
     </joint>
 
     <link name="${link_prefix}erc_payload_link">
       <inertial>
-        <mass value="1.10026"/>
-        <origin xyz="-0.068748 0.019099 0.07874"/>
+        <mass value="1.33042"/>
+        <origin xyz="-0.055949 0.001702 0.064261"/>
         <inertia
-          ixx="0.006365" ixy="-0.0002913" ixz="-0.001492"
-          iyy="0.009844" iyz="-0.0008438"
-          izz="0.006101"/>
+          ixx="0.007414" ixy="0.00007852" ixz="-0.003995"
+          iyy="0.01745" iyz="-0.00001858"
+          izz="0.01187"/>
       </inertial>
       <visual>
         <geometry>
-          <mesh filename="package://leo_erc_description/models/ERC2020payload.dae"/>
+          <mesh filename="package://leo_erc_description/models/ERC2021payload.dae"/>
         </geometry>
       </visual>
       <collision>
         <geometry>
-          <mesh filename="package://leo_erc_description/models/ERC2020payload_outline.dae"/>
+          <mesh filename="package://leo_erc_description/models/ERC2021payload_outline.dae"/>
         </geometry>
       </collision>
     </link>
 
     <joint name="${joint_prefix}zed2_tilt_head_joint" type="fixed">
-      <origin xyz="0 0 0.1291" rpy="0 0.415911961 0"/> <!-- 23.83 degree tilt -->
+      <origin xyz="0.048 0 0.141" rpy="0 0.415911961 0"/> <!-- 23.83 degree tilt -->
       <parent link="${link_prefix}erc_payload_link"/>
       <child link="${link_prefix}zed2_tilt_head_link"/>
     </joint>
@@ -57,11 +57,13 @@
           izz="6.13e-5"/>
       </inertial>
       <visual>
+        <origin xyz="0 0 0" rpy="0 0 ${pi}"/>
         <geometry>
           <mesh filename="package://leo_erc_description/models/Manfrotto_head.dae"/>
         </geometry>
       </visual>
       <collision>
+        <origin xyz="0 0 0" rpy="0 0 ${pi}"/>
         <geometry>
           <mesh filename="package://leo_erc_description/models/Manfrotto_head.dae"/>
         </geometry>
