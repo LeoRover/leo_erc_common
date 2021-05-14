@@ -12,14 +12,21 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://leo_erc_description/models/Probe.dae"/>
+        <mesh filename="package://leo_erc_description/models/Probe_v2.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://leo_erc_description/models/Probe.dae"/>
+        <mesh filename="package://leo_erc_description/models/Probe_v2.dae"/>
       </geometry>
     </collision>
   </link>
+
+  <gazebo reference="probe_center">
+    <mu1>3.0</mu1>
+    <mu2>3.0</mu2>
+    <fdir1>0 1 0</fdir1>
+    <minDepth>0.002</minDepth>
+  </gazebo>
 
 </robot>
