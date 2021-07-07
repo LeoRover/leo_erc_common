@@ -11,7 +11,10 @@ install(
     launch
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
-install(
-  PROGRAMS scripts/key_teleop
+
+catkin_install_python(
+  PROGRAMS 
+    scripts/key_teleop
+    scripts/key_pdu
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}/scripts
 )
