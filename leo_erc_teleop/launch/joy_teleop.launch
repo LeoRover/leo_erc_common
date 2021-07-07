@@ -14,5 +14,7 @@
     <rosparam command="load" file="$(arg joy_config_file)"/>
     <remap from="cmd_vel" to="$(arg cmd_vel_out)"/>
   </node>
+
+  <node name="joy_pdu_node" pkg="leo_erc_teleop" type="key_pdu"/>
   
 </launch>
