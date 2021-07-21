@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find leo_description)/urdf/macros.xacro"/>
+  <xacro:include filename="$(find leo_erc_description)/urdf/leo_macros.xacro"/>
   <xacro:include filename="$(find leo_erc_description)/urdf/zed2.xacro"/>
 
   <xacro:macro name="leo_erc" 
