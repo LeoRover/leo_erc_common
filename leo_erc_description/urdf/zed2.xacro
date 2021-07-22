@@ -295,7 +295,7 @@
           <topicName>zed2/imu/data</topicName>
           <frameName>zed2_imu_link</frameName>
           <updateRateHZ>100.0</updateRateHZ>
-          <gaussianNoise>0.0</gaussianNoise>
+          <gaussianNoise>0.01</gaussianNoise>
           <initialOrientationAsReference>false</initialOrientationAsReference>
           <!-- IMU frame offset copied from an actual ZED2 camera -->
           <xyzOffset>-0.002 -0.023 -0.002</xyzOffset>
