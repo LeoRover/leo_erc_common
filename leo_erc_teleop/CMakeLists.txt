@@ -14,7 +14,7 @@ install(
 
 catkin_install_python(
   PROGRAMS 
-    scripts/key_pdu
+    scripts/joy_pdu
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}/scripts
 )
   install(
